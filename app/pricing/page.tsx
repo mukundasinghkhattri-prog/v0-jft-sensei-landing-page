@@ -11,7 +11,7 @@ const plans = [
   {
     id: 'trial',
     name: 'Trial',
-    price: 'NPR 300',
+    price: 'NPR 550',
     period: '7 days',
     description: 'Perfect for trying out the platform',
     features: [
@@ -26,7 +26,7 @@ const plans = [
   {
     id: 'monthly',
     name: 'Monthly',
-    price: '$900',
+    price: 'NPR 1300',
     period: 'month',
     description: 'Most popular choice for serious learners',
     features: [
@@ -43,7 +43,7 @@ const plans = [
   {
     id: 'quarterly',
     name: '3-Month',
-    price: '$1500',
+    price: 'NPR 1999',
     period: '3 months',
     description: 'Best value for comprehensive prep',
     badge: 'Best Value',
