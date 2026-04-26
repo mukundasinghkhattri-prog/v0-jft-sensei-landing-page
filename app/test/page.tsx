@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/auth-context'
 import { supabase } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
-import { Clock, ChevronRight, ChevronLeft, Check, AlertCircle } from 'lucide-react'
+import { Clock, ChevronRight, ChevronLeft, Check, CircleAlert as AlertCircle } from 'lucide-react'
 
 type Question = {
   id: string

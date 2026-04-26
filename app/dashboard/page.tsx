@@ -7,7 +7,7 @@ import { useAuth } from '@/lib/auth-context'
 import { supabase } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Clock, Target, TrendingUp, BookOpen, ChevronRight, BarChart3, LogOut } from 'lucide-react'
+import { Clock, Target, TrendingUp, BookOpen, ChevronRight, ChartBar as BarChart3, LogOut } from 'lucide-react'
 
 type TestSession = {
   id: string
