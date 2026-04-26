@@ -11,11 +11,11 @@ const plans = [
   {
     id: 'trial',
     name: 'Trial',
-    price: 'NPR 550',
+    price: 'NPR 300',
     period: '7 days',
     description: 'Perfect for trying out the platform',
     features: [
-      'Access to 2 full mock tests',
+      'Access to 7 full mock tests',
       '500+ practice questions',
       'Basic performance analytics',
       'Mobile app access',
@@ -26,7 +26,7 @@ const plans = [
   {
     id: 'monthly',
     name: 'Monthly',
-    price: 'NPR 1300',
+    price: 'NPR 700',
     period: 'month',
     description: 'Most popular choice for serious learners',
     features: [
@@ -43,7 +43,7 @@ const plans = [
   {
     id: 'quarterly',
     name: '3-Month',
-    price: 'NPR 1999',
+    price: 'NPR 1500',
     period: '3 months',
     description: 'Best value for comprehensive prep',
     badge: 'Best Value',
