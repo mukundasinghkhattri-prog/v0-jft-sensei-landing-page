@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, CreditCard } from "lucide-react"
 
@@ -10,18 +11,20 @@ export function CTA() {
           <span className="text-[#f97316]">Lack of Practice</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-200">
-          Join thousands of successful students who passed their exams with JFT SENSEI. 
+          Join thousands of successful students who passed their exams with JFT SENSEI.
           Start your free practice today.
         </p>
-        
+
         <div className="mt-10">
-          <Button 
-            size="lg" 
-            className="h-14 gap-2 bg-[#f97316] px-8 text-lg font-semibold text-white hover:bg-[#ea580c]"
-          >
-            Start Free Mock Test Now
-            <ChevronRight className="h-5 w-5" />
-          </Button>
+          <Link href="/test">
+            <Button
+              size="lg"
+              className="h-14 gap-2 bg-[#f97316] px-8 text-lg font-semibold text-white hover:bg-[#ea580c]"
+            >
+              Start Free Mock Test Now
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </Link>
         </div>
 
         <div className="mt-6 flex items-center justify-center gap-2 text-blue-200">

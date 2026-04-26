@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Play, Check, Clock, ChevronRight } from "lucide-react"
 
@@ -26,14 +27,18 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <Button size="lg" className="h-12 gap-2 bg-[#f97316] px-6 text-base font-semibold text-white hover:bg-[#ea580c]">
-                Try Mock Test (Free)
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="h-12 gap-2 border-gray-300 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">
-                <Play className="h-4 w-4" />
-                Watch Demo
-              </Button>
+              <Link href="/test">
+                <Button size="lg" className="h-12 gap-2 bg-[#f97316] px-6 text-base font-semibold text-white hover:bg-[#ea580c]">
+                  Try Mock Test (Free)
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/pricing">
+                <Button size="lg" variant="outline" className="h-12 gap-2 border-gray-300 px-6 text-base font-semibold text-gray-700 hover:bg-gray-50">
+                  <Play className="h-4 w-4" />
+                  View Plans
+                </Button>
+              </Link>
             </div>
 
             {/* Social Proof */}

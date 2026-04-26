@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, LogOut, LayoutDashboard } from "lucide-react"
+import { useAuth } from "@/lib/auth-context"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { user, profile, signOut } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,6 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#1a2e6e]">
               <span className="text-lg font-bold text-white">J</span>
@@ -42,7 +43,6 @@ export function Navbar() {
             <span className="text-xl font-bold text-[#1a2e6e]">JFT SENSEI</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <Link
@@ -55,17 +55,43 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden items-center gap-3 md:flex">
-            <Button variant="outline" className="border-[#1a2e6e] text-[#1a2e6e] hover:bg-[#1a2e6e]/5">
-              Login
-            </Button>
-            <Button className="bg-[#f97316] text-white hover:bg-[#ea580c]">
-              Try Free
-            </Button>
+            {user ? (
+              <>
+                <Link href="/dashboard">
+                  <Button variant="outline" className="border-[#1a2e6e] text-[#1a2e6e] hover:bg-[#1a2e6e]/5 gap-1">
+                    <LayoutDashboard className="h-4 w-4" />
+                    Dashboard
+                  </Button>
+                </Link>
+                {profile?.role === 'admin' && (
+                  <Link href="/admin">
+                    <Button variant="outline" className="border-[#f97316] text-[#f97316] hover:bg-[#f97316]/5">
+                      Admin
+                    </Button>
+                  </Link>
+                )}
+                <Button onClick={signOut} variant="ghost" className="text-gray-600 hover:text-red-600 gap-1">
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link href="/auth/login">
+                  <Button variant="outline" className="border-[#1a2e6e] text-[#1a2e6e] hover:bg-[#1a2e6e]/5">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/auth/register">
+                  <Button className="bg-[#f97316] text-white hover:bg-[#ea580c]">
+                    Try Free
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 hover:bg-gray-100 md:hidden"
@@ -74,7 +100,6 @@ export function Navbar() {
           </button>
         </nav>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="border-t bg-white pb-4 md:hidden">
             <div className="flex flex-col gap-2 pt-4">
@@ -89,12 +114,40 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-2 px-4">
-                <Button variant="outline" className="w-full border-[#1a2e6e] text-[#1a2e6e]">
-                  Login
-                </Button>
-                <Button className="w-full bg-[#f97316] text-white hover:bg-[#ea580c]">
-                  Try Free
-                </Button>
+                {user ? (
+                  <>
+                    <Link href="/dashboard">
+                      <Button variant="outline" className="w-full border-[#1a2e6e] text-[#1a2e6e] gap-1">
+                        <LayoutDashboard className="h-4 w-4" />
+                        Dashboard
+                      </Button>
+                    </Link>
+                    {profile?.role === 'admin' && (
+                      <Link href="/admin">
+                        <Button variant="outline" className="w-full border-[#f97316] text-[#f97316]">
+                          Admin Panel
+                        </Button>
+                      </Link>
+                    )}
+                    <Button onClick={signOut} variant="ghost" className="w-full text-gray-600 hover:text-red-600 gap-1">
+                      <LogOut className="h-4 w-4" />
+                      Sign Out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/auth/login">
+                      <Button variant="outline" className="w-full border-[#1a2e6e] text-[#1a2e6e]">
+                        Login
+                      </Button>
+                    </Link>
+                    <Link href="/auth/register">
+                      <Button className="w-full bg-[#f97316] text-white hover:bg-[#ea580c]">
+                        Try Free
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

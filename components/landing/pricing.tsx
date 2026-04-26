@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -108,15 +109,17 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <Button
-                className={`mt-8 w-full ${
-                  plan.popular
-                    ? "bg-[#f97316] hover:bg-[#ea580c]"
-                    : "bg-[#1a2e6e] hover:bg-[#1a2e6e]/90"
-                }`}
-              >
-                {plan.cta}
-              </Button>
+              <Link href="/pricing">
+                <Button
+                  className={`mt-8 w-full ${
+                    plan.popular
+                      ? "bg-[#f97316] hover:bg-[#ea580c]"
+                      : "bg-[#1a2e6e] hover:bg-[#1a2e6e]/90"
+                  }`}
+                >
+                  {plan.cta}
+                </Button>
+              </Link>
             </div>
           ))}
         </div>
