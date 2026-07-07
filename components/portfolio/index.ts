@@ -1,0 +1,8 @@
+export { Hero } from './hero'
+export { Navbar } from './navbar'
+export { ExperienceTimeline } from './experience-timeline'
+export { SkillsDashboard } from './skills-dashboard'
+export { EducationSection } from './education'
+export { ProjectsSection } from './projects'
+export { ContactForm } from './contact-form'
+export { Footer } from './footer'

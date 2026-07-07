@@ -34,6 +34,15 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
+      {/* Portfolio V2 Banner */}
+      <div className="bg-gradient-to-r from-[#1a2e6e] to-[#2563EB] py-2 px-4 text-center">
+        <p className="text-white text-xs sm:text-sm flex items-center justify-center gap-2 flex-wrap">
+          <span className="font-semibold">✨ New Premium Portfolio Available</span>
+          <Link href="/portfolio-v2" className="underline underline-offset-2 font-bold hover:text-blue-200 transition-colors whitespace-nowrap">
+            View Mukunda's Full Portfolio →
+          </Link>
+        </p>
+      </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
